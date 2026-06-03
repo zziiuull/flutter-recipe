@@ -69,9 +69,8 @@ class _ReceitaListScreenState extends State<ReceitaListScreen> {
         onPressed: () async {
           await Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => const ReceitaFormScreen()),
+            MaterialPageRoute(builder: (context) => ReceitaFormScreen()),
           );
-          _receitas.clear();
           _atualizarReceitas();
         },
       ),

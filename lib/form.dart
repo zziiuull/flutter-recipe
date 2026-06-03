@@ -47,7 +47,10 @@ class _ReceitaFormScreenState extends State<ReceitaFormScreen> {
             IconButton(
               icon: const Icon(Icons.delete, color: Colors.red),
               onPressed: () async {
-                await dbHelper.deletarReceita(widget.receita!['id']);
+                final id = widget.receita?['id'];
+                if (id != null) {
+                  await dbHelper.deletarReceita(id);
+                }
                 if (context.mounted) Navigator.pop(context);
               },
             ),
@@ -92,6 +95,7 @@ class _ReceitaFormScreenState extends State<ReceitaFormScreen> {
             ElevatedButton(
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.orange,
+                foregroundColor: Colors.white,
                 padding: const EdgeInsets.symmetric(vertical: 16),
               ),
               onPressed: () async {
